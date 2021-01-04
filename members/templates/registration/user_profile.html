@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Profile{% endblock title %}
+
+
+{% block content %}
+
+<h1>Profile</h1>
+
+<div class="card mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="w-100" src="{{ page_user.profile_pic.url }}" alt="..." />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="text-muted h4">
+          <a class="nav-link" href="{% url 'show_profile_page' user.profile.pk %}">Profile</a>
+
+          {% if page_user.website_url %}
+          <a href="{{ page_user.website_url }}"> <i class="fa fa-weibo" aria-hidden="true"></i> </a> |
+          {% endif %}
+          {% if page_user.website_url %}
+          <a href="{{ page_user.facebook_url }}"> <i class="fa fa-facebook-official" aria-hidden="true"></i> </a> |
+          {% endif %}
+          {% if page_user.facebook_url %}
+          <a href="{{ page_user.twitter_url }}"> <i class="fa fa-twitter" aria-hidden="true"></i> </a> |
+          {% endif %}
+          {% if page_user.instagram_url %}
+          <a href="{{ page_user.instagram_url }}"> <i class="fa fa-instagram" aria-hidden="true"></i> </a> |
+          {% endif %}
+          {% if page_user.pinterest_url %}
+          <a href="{{ page_user.pinterest_url }}"> <i class="fa fa-pinterest" aria-hidden="true"></i> </a>
+          {% endif %}
+        </p>
+        <h5 class="card-title">{{ post.author.get_full_name}}</h5>
+        <p class="card-text">{{ page_user.bio}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
